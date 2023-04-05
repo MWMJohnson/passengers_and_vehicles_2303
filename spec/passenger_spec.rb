@@ -1,5 +1,4 @@
 require './lib/passenger'
-
 require 'rspec'
 
 
@@ -33,10 +32,24 @@ RSpec.describe Passenger do
       expect(charlie.adult?).to be(true)
       expect(taylor.adult?).to be(false)
     end
-
-
   end
 
+  describe '#driver?' do 
+    it 'checks if passenger is the driver' do
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})
 
+      expect(charlie.driver?).to be(false)
+    end
+  end
+
+  describe '#drive' do 
+    it 'assigns a passenger as the driver' do
+      charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+
+      expect(charlie.driver?).to be(false)
+      charlie.drive
+      expect(charlie.driver?).to be(true)
+    end
+  end
 
 end
