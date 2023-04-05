@@ -32,6 +32,4 @@ class Vehicle
     adults.count
   end
 
-
-
 end

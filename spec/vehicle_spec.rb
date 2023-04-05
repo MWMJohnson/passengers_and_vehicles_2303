@@ -2,7 +2,6 @@ require './lib/vehicle'
 require './lib/passenger'
 require 'rspec'
 
-
 RSpec.describe Vehicle do 
   describe '#initialize' do 
     it 'exists' do 
@@ -15,6 +14,7 @@ RSpec.describe Vehicle do
       expect(vehicle.year).to eq("2001")
       expect(vehicle.make).to eq("Honda")
       expect(vehicle.model).to eq("Civic")
+      expect(vehicle.passengers).to eq([])
     end
   end
 
@@ -36,15 +36,6 @@ RSpec.describe Vehicle do
     end
   end
 
-  describe '#passengers' do 
-    it 'shows the passengers in the vehicle' do
-      vehicle = Vehicle.new("2001", "Honda", "Civic") 
-
-      expect(vehicle.passengers).to eq([])
-    end
-  end
-
-
   describe '#add_passenger(passenger)' do 
     it 'puts a passenger in the vehicle' do
       vehicle = Vehicle.new("2001", "Honda", "Civic") 
@@ -52,6 +43,8 @@ RSpec.describe Vehicle do
       charlie = Passenger.new({"name" => "Charlie", "age" => 18})
       jude = Passenger.new({"name" => "Jude", "age" => 20})    
       taylor = Passenger.new({"name" => "Taylor", "age" => 12}) 
+
+      expect(vehicle.passengers).to eq([])
 
       vehicle.add_passenger(charlie)
       vehicle.add_passenger(jude)    
@@ -76,6 +69,5 @@ RSpec.describe Vehicle do
       expect(vehicle.num_adults).to eq(2)
     end
   end
-
 
 end
