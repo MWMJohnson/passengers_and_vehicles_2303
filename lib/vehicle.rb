@@ -21,7 +21,16 @@ class Vehicle
     @is_speeding = true
   end
 
+  def add_passenger(passenger)
+    @passengers << passenger
+  end
 
+  def num_adults
+    adults = @passengers.find_all do |passenger|
+      passenger.adult?
+    end
+    adults.count
+  end
 
 
 
