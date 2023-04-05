@@ -17,6 +17,12 @@ class Passenger
     end
   end
 
+  def driver?
+    @is_driver
+  end
 
+  def drive
+    @is_driver = true
+  end
 
 end
