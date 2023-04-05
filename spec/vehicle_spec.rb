@@ -18,15 +18,37 @@ RSpec.describe Vehicle do
     end
   end
 
-#   describe '#adult?' do 
-#   it 'checks if passenger is an adult' do
-#     charlie = Passenger.new({"name" => "Charlie", "age" => 18})
-#     taylor = Passenger.new({"name" => "Taylor", "age" => 12}) 
+  describe '#speeding?' do 
+    it 'checks if a vehicle is speeding' do
+      vehicle = Vehicle.new("2001", "Honda", "Civic") 
 
-#     expect(charlie.adult?).to be(true)
-#     expect(taylor.adult?).to be(false)
-#   end
-# end
+      expect(vehicle.speeding?).to be(false)
+    end
+  end
+
+  describe '#speed' do 
+    it 'makes the vehicle speed' do
+      vehicle = Vehicle.new("2001", "Honda", "Civic") 
+
+      expect(vehicle.speeding?).to be(false)
+      vehicle.speed
+      expect(vehicle.speeding?).to be(true)
+    end
+  end
+
+  # describe '#passengers' do 
+  #   it 'displays the passengers in the vehicle' do
+  #     vehicle = Vehicle.new("2001", "Honda", "Civic") 
+
+  #     charlie = Passenger.new({"name" => "Charlie", "age" => 18})
+  #     jude = Passenger.new({"name" => "Jude", "age" => 20})    
+  #     taylor = Passenger.new({"name" => "Taylor", "age" => 12}) 
+
+  #     expect(vehicle.speeding?).to be(false)
+  #     vehicle.speed
+  #     expect(vehicle.speeding?).to be(true)
+  #   end
+  # end
 
 
 end
